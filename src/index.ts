@@ -11,6 +11,10 @@ const client = new Client({
 });
 client.connect();
 
+client.query("Listen out_of_stock_notif");
+client.on("notification", async (data: any) => {
+  console.log(data);
+});
 app.listen(PORT, async () => {
   console.log(` Server: Running on port ${PORT}`);
 });
